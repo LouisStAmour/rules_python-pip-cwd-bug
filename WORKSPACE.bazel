@@ -12,3 +12,20 @@ pip_install(
     name = "b_deps",
     requirements = "//B:child-requirements.txt",
 )
+
+# I would like to be able to say:
+# pip_install(
+#     name = "b_deps",
+#     requirements = "//B:child-requirements.txt",
+#     working_directory = "B"
+# )
+# ... or similar.
+#
+# This would be like:
+# npm_install(
+#     name = "b_npm",
+#     package_json = "//B:package.json",
+#     package_path = "B",
+#     package_lock_json = "//B:package-lock.json",
+# )
+# where you can specify `package_path` to change the current working directory but it would eventually (in rules_nodejs 4.x) default to the location of package.json.

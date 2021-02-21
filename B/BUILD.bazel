@@ -1,0 +1,9 @@
+py_library(
+    name = "B",
+    srcs = glob(["**/*.py"]),
+    deps = ["@b_deps//pypi__a"],
+    data = glob(["**/*"], exclude=["**/*.py", "**/* *", "BUILD.bazel", "WORKSPACE.bazel"]),
+    # This makes this directory a top-level in the python import
+    # search path for anything that depends on this.
+    imports = ["."],
+)
